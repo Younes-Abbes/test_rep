@@ -1,63 +1,49 @@
+import { LinkProvider, useLink } from "@/app/_contexts/LinkContext";
 import Link from "next/link";
-
-export default function Links({
-  selectedPage,
-  onClick,
-}: {
-  selectedPage: number;
-  onClick: (num: number) => void;
-}) {
+export default function Links() {
   return (
-    <ul className="flex justify-around w-1/3 items-center p-2">
-      <li>
-        <Link href="/" onClick={() => onClick(1)}>
+    <LinkProvider>
+      <ul className="flex justify-around w-1/3 items-center p-2">
+        <LinkElement url="/" num={1}>
           Home
-        </Link>
-        <div
-          className={`${
-            selectedPage === 1 ? "w-full" : "w-0"
-          } h-0.5 bg-orange-600 transition-all duration-300`}></div>
-      </li>
+        </LinkElement>
+        <LinkElement url="/courses" num={2}>
+          courses
+        </LinkElement>
+        <LinkElement url="/about" num={3}>
+          about
+        </LinkElement>
+        <LinkElement url="/contact" num={4}>
+          contact
+        </LinkElement>
+        <LinkElement url="/becomeAnInstructor" num={5}>
+          become an instructor
+        </LinkElement>
+      </ul>
+    </LinkProvider>
+  );
+}
 
-      <li>
-        <Link href="/courses" onClick={() => onClick(2)}>
-          Courses
-        </Link>
-        <div
-          className={`${
-            selectedPage === 2 ? "w-full" : "w-0"
-          } h-0.5 bg-orange-600 transition-all duration-300`}></div>
-      </li>
+function LinkElement({
+  children,
+  url,
+  num,
+}: {
+  children: any;
+  url: string;
+  num: number;
+}): JSX.Element {
+  const { selectedPage, setSelectedPage } = useLink();
 
-      <li>
-        <Link href="/about" onClick={() => onClick(3)}>
-          About
-        </Link>
-        <div
-          className={`${
-            selectedPage === 3 ? "w-full" : "w-0"
-          } h-0.5 bg-orange-600 transition-all duration-300`}></div>
-      </li>
-
-      <li>
-        <Link href="/contact" onClick={() => onClick(4)}>
-          Contact
-        </Link>
-        <div
-          className={`${
-            selectedPage === 4 ? "w-full" : "w-0"
-          } h-0.5 bg-orange-600 transition-all duration-300`}></div>
-      </li>
-
-      <li>
-        <Link href="/becomeAnInstructor" onClick={() => onClick(5)}>
-          Become an Instructor
-        </Link>
-        <div
-          className={`${
-            selectedPage === 5 ? "w-full" : "w-0"
-          } h-0.5 bg-orange-600 transition-all duration-300`}></div>
-      </li>
-    </ul>
+  return (
+    <li>
+      <Link href={url} onClick={() => setSelectedPage(num)}>
+        {children}
+      </Link>
+      <div
+        className={`${
+          selectedPage === num ? "w-full" : "w-0"
+        } h-0.5 bg-orange-600 transition-all duration-300`}></div>
+    </li>
   );
 }

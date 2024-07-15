@@ -177,13 +177,7 @@ const Card: React.FC<CardProps> = ({ course, width }) => {
     <div
       className={`m-auto transition-all duration-700 flex flex-col ${width} gap-3 items-center hover:w-full px-2 border-2 border-gray-200`}>
       <div className="relative w-full h-48">
-        <Image
-          src={course.pic}
-          alt="Course"
-          layout="fill"
-          objectFit="cover"
-          className="rounded-lg"
-        />
+        <img src={course.pic} alt="Course" className="rounded-lg" />
       </div>
       <div className="flex flex-row items-center justify-between w-full">
         <div className={`text-xs px-2 py-1 ${course.colors}`}>

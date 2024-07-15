@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 type Course = {
   id: number;
   image: string;

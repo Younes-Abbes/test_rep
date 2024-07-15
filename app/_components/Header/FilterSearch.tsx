@@ -1,4 +1,10 @@
+"use client";
+
+import { useState } from "react";
+
 export default function FilterSearch() {
+  const [search, setSearch] = useState("");
+
   return (
     <div className="flex items-center gap-6 py-4">
       <img src="\assets\others\LOGO.png" className="ml-4 h-8"></img>
@@ -12,6 +18,11 @@ export default function FilterSearch() {
           <img src="\assets\others/MagnifyingGlass.png" className="h-6"></img>
         </button>
         <input
+          onChange={(e) => {
+            e.target.value.length >= 3
+              ? setSearch(e.target.value)
+              : setSearch("");
+          }}
           type="text"
           placeholder="What do you want to learn ..."
           className="w-80 bg-inherit"></input>

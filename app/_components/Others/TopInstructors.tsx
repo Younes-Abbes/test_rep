@@ -58,11 +58,9 @@ function TopInstructors() {
             key={index}
             className="flex flex-col w-[18%] gap-4 items-center bg-white border-2 border-gray-200">
             <div className="relative h-56 w-full">
-              <Image
+              <img
                 src={instructor.pic}
                 alt="Instructor"
-                layout="fill"
-                objectFit="cover"
                 className="rounded-lg"
               />
             </div>
