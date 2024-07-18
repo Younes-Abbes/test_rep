@@ -13,11 +13,11 @@ function Introduction() {
         </button>
       </div>
 
-      <img
+      {/* <img
         className=" bg-gray-100 w-1/2"
         src="\assets\others\homeheader.jpg"
         alt="Homeheader picture"
-      />
+      /> */}
     </div>
   );
 }

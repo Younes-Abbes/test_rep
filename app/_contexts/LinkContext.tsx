@@ -8,7 +8,7 @@ interface LinkContextProps {
 const LinkContext = createContext<LinkContextProps | undefined>(undefined);
 
 function LinkProvider({ children }: { children: ReactNode }) {
-  const [selectedPage, setSelectedPage] = useState<number>(1);
+  const [selectedPage, setSelectedPage] = useState(1);
 
   return (
     <LinkContext.Provider value={{ selectedPage, setSelectedPage }}>
