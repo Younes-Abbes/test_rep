@@ -1,8 +1,14 @@
-import { createContext, useContext, useState, ReactNode } from "react";
+import {
+  createContext,
+  useContext,
+  useState,
+  ReactNode,
+  SetStateAction,
+} from "react";
 
 interface LinkContextProps {
   selectedPage: number;
-  setSelectedPage: (page: number) => void;
+  setSelectedPage: React.Dispatch<SetStateAction<number>>;
 }
 
 const LinkContext = createContext<LinkContextProps | undefined>(undefined);

@@ -120,7 +120,7 @@ function Courses() {
   return (
     <div className="flex w-screen flex-col items-center gap-5 bg-gray-100 pb-20 pt-10">
       <h1 className="text-3xl">Best selling Courses</h1>
-      <div className="grid grid-cols-5  gap-7">
+      <div className="grid grid-cols-5 gap-[25px]">
         {courses.map((course) => (
           <Course course={course} key={course.id} />
         ))}
@@ -133,17 +133,23 @@ export default Courses;
 
 function Course({ course }: { course: Course }) {
   return (
-    <button className="block w-10/12 h-[20rem] mx-auto space-y-1 rounded-xl transition-all duration-300 hover:w-full hover:h-full hover:shadow-xl">
-      <img className="rounded-xl" src={course.image} alt="img" />
-      <div className="flex w-full justify-between gap-2">
-        <h3 className={`bg-gray-200 px-1 ${course.colors}`}>{course.label}</h3>
-        <span className="text-orange-600">${course.price}</span>
-      </div>
-      <p className="max-w-60 pl-2 text-start">{course.description}</p>
-      <hr />
-      <div className="flex w-full justify-between px-1">
-        <span>⭐{course.rating}</span>
-        <span>{course.students}k students</span>
+    <button className="block w-10/12 mx-auto space-y-1 transition-all duration-300 transform hover:scale-105 hover:shadow-xl overflow-hidden rounded-xl">
+      <img
+        className="w-full h-32 object-cover"
+        src={course.image}
+        alt={course.label}
+      />
+      <div className="p-2">
+        <div className="flex w-full justify-between items-center">
+          <h3 className={`px-2 py-1 ${course.colors}`}>{course.label}</h3>
+          <span className="text-orange-600">${course.price}</span>
+        </div>
+        <p className="text-sm text-start mt-2">{course.description}</p>
+        <hr className="my-2" />
+        <div className="flex w-full justify-between items-center">
+          <span>⭐{course.rating}</span>
+          <span>{course.students}k students</span>
+        </div>
       </div>
     </button>
   );

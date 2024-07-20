@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import "@/app/globals.css";
-import Link from "next/link";
-import Header from "./_components/Header";
-import Footer from "./_components/Footer";
-import { getNames } from "./_services/apiNames";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import QueryProvider from "@/components/query-provider";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -12,18 +11,17 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({
   children,
+  noLayout,
 }: Readonly<{
   children: React.ReactNode;
+  noLayout?: boolean;
 }>) {
-  const names = await getNames();
-  console.log(names);
-
   return (
     <html lang="en">
       <body className="flex flex-col items-center justify-between gap-16 min-h-screen">
-        <Header />
-        <main>{children}</main>
-        <Footer />
+        <QueryProvider>
+          <main>{children}</main>
+        </QueryProvider>
       </body>
     </html>
   );

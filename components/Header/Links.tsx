@@ -1,4 +1,5 @@
-import { LinkProvider, useLink } from "@/app/_contexts/LinkContext";
+"use client";
+import { LinkProvider, useLink } from "@/Contexts/LinkContext";
 import Link from "next/link";
 export default function Links() {
   return (

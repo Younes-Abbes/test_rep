@@ -1,5 +1,3 @@
-"use client";
-
 import Options from "./Options";
 import Links from "./Links";
 

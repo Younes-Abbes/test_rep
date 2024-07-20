@@ -13,7 +13,7 @@ export default function FilterSearch() {
         <option>Browse</option>
         <option></option>
       </select>
-      <div className="ml-auto flex w-auto space-x-2 border-2 border-gray-400 p-2 ">
+      <div className="ml-auto flex w-auto space-x-2 border-2 border-gray-400 p-2 focus-within:border-orange-500">
         <button>
           <img src="\assets\others/MagnifyingGlass.png" className="h-6"></img>
         </button>
@@ -25,7 +25,7 @@ export default function FilterSearch() {
           }}
           type="text"
           placeholder="What do you want to learn ..."
-          className="w-80 bg-inherit"></input>
+          className="w-80 bg-inherit outline-none "></input>
       </div>
     </div>
   );
