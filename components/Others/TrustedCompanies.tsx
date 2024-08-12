@@ -1,3 +1,5 @@
+import { companies } from "@/Data/data";
+
 function TrustedCompanies() {
   return (
     <div className="flex flex-row gap-5 w-3/4 items-center m-auto mt-12 pb-10">
@@ -10,75 +12,20 @@ function TrustedCompanies() {
           sociosqu ad litora torquent per conubia nostra.
         </div>
       </div>
-      <div className="flex flex-col gap-5 w-1/6 justify-center">
-        <button className="m-auto w-[180px] bg-white">
-          <img
-            src="/assets/companies/C1.png"
-            alt="C1"
-            className="h-[80px] m-auto"
-          />
-        </button>
-
-        <button className="m-auto w-[180px] bg-white">
-          <img
-            src="/assets/companies/C2.png"
-            alt="C2"
-            className="h-[80px] w-[80px] m-auto"
-          />
-        </button>
-      </div>
-      <div className="flex flex-col gap-5 w-1/6 justify-center">
-        <button className="m-auto w-[180px] bg-white">
-          <img
-            src="/assets/companies/C3.png"
-            alt="C3"
-            className="h-[80px] w-[80px] m-auto"
-          />
-        </button>
-
-        <button className="m-auto w-[180px] bg-white">
-          <img
-            src="/assets/companies/C4.png"
-            alt="C4"
-            className="h-[80px] w-[80px] m-auto"
-          />
-        </button>
-      </div>
-      <div className="flex flex-col gap-5 w-1/6 justify-center">
-        <button className="m-auto w-[180px] bg-white">
-          <img
-            src="/assets/companies/C5.png"
-            alt="C1"
-            className="h-[80px] w-[80px] m-auto"
-          />
-        </button>
-
-        <button className="m-auto w-[180px] bg-white">
-          <img
-            src="/assets/companies/C6.png"
-            alt="C1"
-            className="h-[80px] w-[80px] m-auto"
-          />
-        </button>
-      </div>
-      <div className="flex flex-col gap-5 w-1/6 justify-center">
-        <button className="m-auto w-[180px] bg-white">
-          <img
-            src="/assets/companies/C7.png"
-            alt="C1"
-            className="h-[80px] w-[80px] m-auto"
-          />
-        </button>
-
-        <button className="m-auto w-[180px] bg-white">
-          <img
-            src="/assets/companies/C8.png"
-            alt="C1"
-            className="h-[80px] w-[80px] m-auto"
-          />
-        </button>
+      <div className="grid grid-cols-4 w-full gap-5">
+        {companies.map((company, index) => (
+          <Company key={index} company={company} />
+        ))}
       </div>
     </div>
+  );
+}
+
+function Company({ company }: { company: string }) {
+  return (
+    <button className="m-auto w-[180px] bg-white">
+      <img src={company} alt="C1" className="h-[80px] w-[80px] m-auto" />
+    </button>
   );
 }
 

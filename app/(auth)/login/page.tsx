@@ -3,20 +3,10 @@ import LoginForm from "../components/LoginForm";
 import image from "@/public/GraduationCap.png";
 import Saly from "@/public/Saly-10.png";
 import Link from "next/link";
-export default function Page() {
+export default async function Page() {
   return (
     <div className="w-screen h-screen">
-      <div className="m-auto w-[70%]  flex justify-between p-3">
-        <Link href="/">
-          <Image src={image} alt="Graduation Cap" />
-        </Link>
-        <div>
-          don't have an account ?{" "}
-          <button className="bg-red-400 p-2 text-red-800">
-            <Link href="/signUp">Create Account</Link>
-          </button>
-        </div>
-      </div>
+      <AuthenticatorHeader />
 
       <div className="h-full bg-gray-100 w-screen grid grid-cols-2 ">
         <div className="relative">
@@ -31,6 +21,25 @@ export default function Page() {
           <p className="text-4xl font-semibold">Sign in to your account</p>
           <LoginForm />
         </div>
+      </div>
+    </div>
+  );
+}
+
+export function AuthenticatorHeader() {
+  return (
+    <div className="m-auto w-[70%]  flex justify-between p-3">
+      <div>
+        <Link href="/" className="flex gap-2 ">
+          <Image src={image} alt="Graduation Cap" />
+          <span className="text-3xl font-semibold">E-Tutor</span>
+        </Link>
+      </div>
+      <div className="flex gap-4 items-center">
+        <span>don't have an account ?</span>
+        <button className="bg-primary-100 p-2 text-primary-500">
+          <Link href="/signUp">Create Account</Link>
+        </button>
       </div>
     </div>
   );

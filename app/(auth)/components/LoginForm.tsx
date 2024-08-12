@@ -1,8 +1,17 @@
 "use client";
 
-import { useLogin } from "@/hook/useLogin";
+import { useLogin } from "@/hooks/credentials/useLogin";
+import { QueryProvider } from "@/Contexts/useQueryProvider";
 
 export default function LoginForm() {
+  return (
+    <QueryProvider>
+      <Form />
+    </QueryProvider>
+  );
+}
+
+function Form() {
   const { mutate, isPending } = useLogin();
 
   if (isPending) return <p>Logging in...</p>;
@@ -29,6 +38,9 @@ export default function LoginForm() {
         placeholder="Password"
         required
       />
+      <label>remember me </label>
+      <input type="checkbox" name="rememberMe" />
+
       <button type="submit">Login</button>
     </form>
   );

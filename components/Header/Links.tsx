@@ -1,25 +1,24 @@
 "use client";
 import { LinkProvider, useLink } from "@/Contexts/LinkContext";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 export default function Links() {
+  const routes: { url: string; num: number }[] = [
+    { url: "/", num: 1 },
+    { url: "/courses", num: 2 },
+    { url: "/about", num: 3 },
+    { url: "/contact", num: 4 },
+    { url: "/becomeAnInstructor", num: 5 },
+  ];
+
   return (
     <LinkProvider>
-      <ul className="flex justify-around w-1/3 items-center p-2">
-        <LinkElement url="/" num={1}>
-          Home
-        </LinkElement>
-        <LinkElement url="/courses" num={2}>
-          courses
-        </LinkElement>
-        <LinkElement url="/about" num={3}>
-          about
-        </LinkElement>
-        <LinkElement url="/contact" num={4}>
-          contact
-        </LinkElement>
-        <LinkElement url="/becomeAnInstructor" num={5}>
-          become an instructor
-        </LinkElement>
+      <ul className="flex justify-start gap-6 ml-5 w-full items-center p-2">
+        {routes.map((route) => (
+          <LinkElement key={route.num} url={route.url} num={route.num}>
+            {route.url === "/" ? "Home" : route.url.slice(1)}
+          </LinkElement>
+        ))}
       </ul>
     </LinkProvider>
   );

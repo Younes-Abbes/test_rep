@@ -1,83 +1,7 @@
-type Course = {
-  id: number;
-  image: string;
-  label: string;
-  price_init: number;
-  price: number;
-  description: string;
-  instructor: string;
-  instructorPic: string;
-  rating: number;
-  raters: number;
-  students: number;
-  level: string;
-  hours: number;
-};
+import { featureCourses } from "@/Data/data";
+import { FeatureCourse } from "@/types/types";
 
 export default function FeatureCourses() {
-  const data: Course[] = [
-    {
-      id: 1,
-      image: "assets/featureCourses/Course Images.png",
-      label: "Health & Fitness",
-      price_init: 26.0,
-      price: 14.0,
-      description: "Investing in stocks The complete Course! (13 H ...)",
-      instructor: "kevin Gilbert",
-      instructorPic: "assets/featureCourses/Photo.png",
-      rating: 5.0,
-      raters: 357_914,
-      students: 265.7,
-      level: "beginner",
-      hours: 6,
-    },
-    {
-      id: 2,
-      image: "assets/featureCourses/Course Images (2).png",
-      label: "Personal Development",
-      price_init: 26.0,
-      price: 14.0,
-      description: "Google Analytics certification - Learn how to ...",
-      instructor: "kevin Gilbert",
-      instructorPic: "assets/featureCourses/Photo.png",
-      rating: 5.0,
-      raters: 357_914,
-      students: 265.7,
-      level: "beginner",
-      hours: 6,
-    },
-    {
-      id: 3,
-      image: "assets/featureCourses/Course Images (1).png",
-      label: "Productivity",
-      price_init: 26.0,
-      price: 14.0,
-      description: "Adobe XD for web design: Essential principles",
-      instructor: "kevin Gilbert",
-      instructorPic: "assets/featureCourses/Photo.png",
-      rating: 5.0,
-      raters: 357_914,
-      students: 265.7,
-      level: "beginner",
-      hours: 6,
-    },
-    {
-      id: 4,
-      image: "assets/featureCourses/Course Images (3).png",
-      label: "Music",
-      price_init: 26.0,
-      price: 14.0,
-      description: "The Python Mega Course: Build 10 Real World ...",
-      instructor: "kevin Gilbert",
-      instructorPic: "assets/featureCourses/Photo.png",
-      rating: 5.0,
-      raters: 357_914,
-      students: 265.7,
-      level: "beginner",
-      hours: 6,
-    },
-  ];
-
   return (
     <div className="flex flex-col bg-gray-100 p-20">
       <div className="flex justify-between mb-10">
@@ -88,7 +12,7 @@ export default function FeatureCourses() {
         </p>
       </div>
       <div className="grid grid-cols-2 w-full gap-6 ">
-        {data.map((course) => (
+        {featureCourses.map((course) => (
           <Course course={course} key={course.id} />
         ))}
       </div>
@@ -96,7 +20,7 @@ export default function FeatureCourses() {
   );
 }
 
-function Course({ course }: { course: Course }) {
+function Course({ course }: { course: FeatureCourse }) {
   return (
     <button className="flex gap-4 w-full max-w-xl hover:max-w-full mx-auto hover:shadow-xl transition-all duration-300">
       <img src={course.image} alt="course image" className="rounded-2xl" />

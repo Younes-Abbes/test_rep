@@ -20,23 +20,36 @@ function SocialMedia() {
         mattis odio at.
       </p>
       <div className="mt-10 flex space-x-4">
-        <button className="max-w-10 bg-gray-300 p-2 transition-all duration-500 hover:bg-orange-500">
-          <img src="/assets/others/Social.png" alt="facebook logo" />
-        </button>
-        <button className="max-w-10 bg-gray-300 p-2 transition-all duration-500 hover:bg-orange-500">
-          <img src="/assets/others/Instragarm.png" alt="instagram logo" />
-        </button>
-        <button className="max-w-10 bg-gray-300 p-2 transition-all duration-500 hover:bg-orange-500">
-          <img src="/assets/others/Linkedin.png" alt="linkedin logo" />
-        </button>
-        <button className="max-w-10 bg-gray-300 p-2 transition-all duration-500 hover:bg-orange-500">
-          <img src="/assets/others/Twitter.png" alt="twitter logo" />
-        </button>
-        <button className="max-w-10 bg-gray-300 p-2 transition-all duration-500 hover:bg-orange-500">
-          <img src="/assets/others/Frame 74.png" alt="youtube logo" />
-        </button>
+        <SocialMediaElement
+          src="/assets/others/Social.png"
+          alt="facebook logo"
+        />
+        <SocialMediaElement
+          src="/assets/others/Instragarm.png"
+          alt="instagram logo"
+        />
+        <SocialMediaElement
+          src="/assets/others/Linkedin.png"
+          alt="linkedin logo"
+        />
+        <SocialMediaElement
+          src="/assets/others/Twitter.png"
+          alt="twitter logo"
+        />
+        <SocialMediaElement
+          src="/assets/others/Frame 74.png"
+          alt="youtube logo"
+        />
       </div>
     </div>
+  );
+}
+
+function SocialMediaElement({ src, alt }: { src: string; alt: string }) {
+  return (
+    <button className="max-w-10 bg-gray-300 p-2 transition-all duration-500 hover:bg-orange-500">
+      <img src={src} alt={alt} />
+    </button>
   );
 }
 

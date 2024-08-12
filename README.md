@@ -5,6 +5,9 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 First, run the development server:
 
 ```bash
+#types of the data base:
+supabase gen types --lang=typescript --project-id hpuoaxgurzcxypvygthz --schema public > types/supabase.ts
+
 npm run dev
 # or
 yarn dev
