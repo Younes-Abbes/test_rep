@@ -42,41 +42,13 @@ export async function loadCourses(tab: Tables<'courses'>[]) {
     return {error : null};
   }
 
-  export async function handleAddCourse(formData: FormData) {
-    const {
-      id,
-      image,
-      label,
-      description,
-      price,
-      rating,
-      students,
-      colors,
-    } = {
-      id: Number(formData.get("id")),
-      image: formData.get("image") as File,
-      label: String(formData.get("label")),
-      description: String(formData.get("description")),
-      price: Number(formData.get("price")),
-      rating: Number(formData.get("rating")),
-      students: Number(formData.get("students")),
-      colors: String(formData.get("colors")),
-    };
   
-      const newCourse = {
-        id,
-      image: image.name,
-      label,
-      description,
-      price,
-      rating,
-      students,
-      colors,
-    }
-  
-  
-    const {error: addingError} = await addCourse(newCourse, image);
-    if (addingError) {
-      throw new Error(addingError.message);
-    }  
+  export async function uploadPic (bucket: string, picture: File, name: string) {
+    const { error } = await supabase.storage.from(bucket).upload(`/${name}`, picture);
+    const {data: {publicUrl}} = await supabase.storage.from(bucket).getPublicUrl(`/${name}`);
+    if (error) console.log(error.message);
+    return publicUrl;
   }
+
+
+  

@@ -45,3 +45,14 @@ return [{...course, image: imageUrl}];}
 return courses;
 
 }
+
+export async function getFile(bucket: string, name: string): Promise<string | null> {
+  const { data : {publicUrl : result} } = await supabase.storage.from(bucket).getPublicUrl(name);
+  return result ?? null;
+}
+
+export async function isExisting(bucket: string, name: string) {
+  const result = await getFile(bucket, name);
+  return result !== null;
+}
+

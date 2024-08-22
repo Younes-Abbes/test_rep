@@ -1,0 +1,18 @@
+/* components/DraggableList.module.css */
+
+.item {
+  border: 1px solid #0070f3;
+  border-radius: 4px;
+  padding: 16px;
+  margin: 8px 0;
+  background-color: #f0faff;
+  color: #333;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  cursor: grab;
+  transition: transform 200ms ease-in-out;
+}
+
+.item:active {
+  cursor: grabbing;
+  opacity: 0.8;
+}

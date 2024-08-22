@@ -1,14 +1,12 @@
-import { getProfile } from "@/lib/actions/credentials/getCredentials";
-import { Tables } from "@/types/supabase";
+"use client";
+import { useProfile } from "@/queries/profileQuery";
 import Link from "next/link";
 import React from "react";
-import { toast } from "react-toastify";
 
-export default function StudentInformations({
-  profile,
-}: {
-  profile: Tables<"profiles">;
-}) {
+export default function StudentInformations() {
+  const { data: profile } = useProfile();
+  console.log("profile", profile);
+
   return (
     <div className="flex  p-7 items-center gap-10 justify-between w-full">
       <div className="flex gap-5">

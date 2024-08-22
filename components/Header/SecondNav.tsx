@@ -1,7 +1,5 @@
 import Buttons from "./Buttons";
 import FilterSearch from "./FilterSearch";
-import { getProfile } from "@/lib/actions/credentials/getCredentials";
-import { Tables } from "@/types/supabase";
 
 export default async function SecondNav() {
   return (

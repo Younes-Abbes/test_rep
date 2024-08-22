@@ -1,4 +1,4 @@
-import { handleLogin } from "@/lib/actions/credentials/login";
+import { handleLogin } from "@/api/User/login";
 import { useMutation } from "@tanstack/react-query";
 import { redirect } from "next/navigation";
 import { toast } from "react-toastify";

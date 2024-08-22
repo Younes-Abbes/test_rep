@@ -1,4 +1,4 @@
-import { handleAddCourse } from "@/lib/actions/Data/addData";
+import { handleAddCourse } from "@/api/Data/addData";
 import { useMutation } from "@tanstack/react-query";
 
 export function useAddCourse() {

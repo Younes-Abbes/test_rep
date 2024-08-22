@@ -1,6 +1,6 @@
 "use client";
 import { useQuery } from "@tanstack/react-query";
-import { getCourses } from "@/lib/actions/Data/getData";
+import { getCourses } from "@/api/Data/getData";
 import { Courses } from "./Courses";
 
 export function BestSellingCourses() {

@@ -1,7 +1,7 @@
 import { Tables } from "@/types/supabase";
 import Link from "next/link";
 import ProfileMenu from "../Others/ProfileMenu";
-import { getProfile } from "@/lib/actions/credentials/getCredentials";
+import { getProfile } from "@/api/User/getCredentials";
 
 export default async function Buttons() {
   let profile = await getProfile();

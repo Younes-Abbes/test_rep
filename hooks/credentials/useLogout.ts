@@ -1,4 +1,4 @@
-import { signOut } from "@/lib/actions/credentials/logout";
+import { signOut } from "@/api/User/logout";
 import { useMutation } from "@tanstack/react-query";
 import { redirect } from "next/navigation";
 

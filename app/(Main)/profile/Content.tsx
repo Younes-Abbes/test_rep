@@ -2,16 +2,15 @@
 
 import View from "@/components/Others/View";
 import StudentCard from "@/components/Settings/StudentCard";
-import { Tables } from "@/types/supabase";
 import { useState } from "react";
 
-export default function Content({ profile }: { profile: Tables<"profiles"> }) {
+export default function Content() {
   const [page, setPage] = useState("settings");
 
   return (
     <>
-      <StudentCard page={page} setPage={setPage} profile={profile} />
-      <View page={page} profile={profile} />
+      <StudentCard page={page} setPage={setPage} />
+      <View page={page} />
     </>
   );
 }

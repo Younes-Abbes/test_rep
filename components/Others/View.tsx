@@ -8,16 +8,10 @@ import PurchaseHistoryView from "../Settings/PurchaseHistoryView";
 import DashboardView from "../Settings/DashboardView";
 import { Tables } from "@/types/supabase";
 
-export default function View({
-  page,
-  profile,
-}: {
-  page: string;
-  profile: Tables<"profiles">;
-}) {
+export default function View({ page }: { page: string }) {
   switch (page) {
     case "settings":
-      return <SettingsView profile={profile} />;
+      return <SettingsView />;
     case "Courses":
       return <CoursesView />;
     case "Teachers":

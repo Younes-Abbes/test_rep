@@ -11,7 +11,7 @@ export async function getUser() {
 
 export async function getProfile(): Promise<Tables<'profiles'> | null> {
   const supabase = createClient();
-  const {data: {user}, error} = await supabase.auth.getUser();
+  const {data: {user}} = await supabase.auth.getUser();
   const { data: profile, error: profileError } = await supabase
     .from("profiles")
     .select("*")

@@ -1,143 +1,105 @@
-// pages/account-settings.js
+import AddCourseForm from "@/components/AddCourseForm/AddCourseForm";
+/* import { handleAddFile } from "@/api/Data/addData";
+import { handleGetFile } from "@/api/Data/getData";
+import { useMutation } from "@tanstack/react-query";
+import { toast } from "react-toastify";
 
 export default function AccountSettings() {
+  const { mutate: upload, data: uploadResult } = useMutation({
+    mutationFn: handleAddFile,
+    onError: (error) => toast.error(error.message),
+    onSuccess: () => toast.success("File uploaded successfully"),
+  });
+  const { mutate: get, data } = useMutation({
+    mutationFn: handleGetFile,
+    onError: (error) => toast.error(error.message),
+    onSuccess: () => toast.success("File uploaded successfully"),
+  });
+
   return (
-    <div className="max-w-4xl mx-auto py-8">
-      {/* Account Settings Section */}
-      <div className="bg-white shadow-md rounded-lg p-6 mb-6">
-        <h2 className="text-2xl font-semibold mb-4">Account settings</h2>
-        <div className="flex flex-col md:flex-row gap-6">
-          {/* Profile Picture Upload */}
-          <div className="flex flex-col items-center">
-            <img
-              src="/default-avatar.png" // Replace with your default image
-              alt="Profile Picture"
-              className="w-32 h-32 rounded-full object-cover"
-            />
-            <button className="mt-4 bg-gray-200 px-4 py-2 rounded-md text-sm hover:bg-gray-300">
-              Upload Photo
-            </button>
-            <p className="text-xs text-gray-500 mt-2">
-              Image size should be under 1MB and image ratio needs to be 1:1
-            </p>
-          </div>
+    <div>
+      <form action={upload}>
+        <label htmlFor="file"></label>
+        <input id="file" type="file" name="file" />
+        <button type="submit" className="bg-primary-200 p-4 rounded-lg">
+          submit
+        </button>
+        {uploadResult === null || uploadResult === undefined ? (
+          <p>no result</p>
+        ) : (
+          <p>{uploadResult}</p>
+        )}
+      </form>
 
-          {/* Account Details Form */}
-          <div className="flex-1">
-            <form>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700">
-                    First name
-                  </label>
-                  <input
-                    type="text"
-                    className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
-                    placeholder="First name"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700">
-                    Last name
-                  </label>
-                  <input
-                    type="text"
-                    className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
-                    placeholder="Last name"
-                  />
-                </div>
-              </div>
+      <form action={get}>
+        <label htmlFor="bucket">bucket :</label>
+        <input type="text" id="bucket" name="bucket" />
 
-              <div className="mt-4">
-                <label className="block text-sm font-medium text-gray-700">
-                  Username
-                </label>
-                <input
-                  type="text"
-                  className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
-                  placeholder="Enter your username"
-                />
-              </div>
+        <label htmlFor="picture">picture :</label>
+        <input type="text" id="picture" name="picture" />
+        <button>get picture</button>
+        {data === null || data === undefined ? (
+          <h2>no data to be shown</h2>
+        ) : (
+          <img src={data} alt="data" />
+        )}
+      </form>
+    </div>
+  );
+} */
 
-              <div className="mt-4">
-                <label className="block text-sm font-medium text-gray-700">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
-                  placeholder="Email address"
-                />
-              </div>
+/* import { useState } from "react";
 
-              <div className="mt-4">
-                <label className="block text-sm font-medium text-gray-700">
-                  Title
-                </label>
-                <input
-                  type="text"
-                  className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
-                  placeholder="Your title, profession or small biography"
-                  maxLength={50}
-                />
-              </div>
+export default function ImageUploader() {
+  const [imageSrc, setImageSrc] = useState<string | undefined>(undefined);
 
-              <div className="mt-6">
-                <button
-                  type="submit"
-                  className="bg-orange-500 text-white px-4 py-2 rounded-md hover:bg-orange-600">
-                  Save Changes
-                </button>
-              </div>
-            </form>
-          </div>
+  const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setImageSrc(reader.result as string);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+  return (
+    <div className="p-4">
+      <label
+        htmlFor="imageInput"
+        className="block text-sm font-medium text-gray-700">
+        Upload an image:
+      </label>
+      <input
+        id="imageInput"
+        type="file"
+        accept="image/*"
+        className="mt-1 block w-full"
+        onChange={handleImageChange}
+      />
+
+      {imageSrc && (
+        <div className="mt-4">
+          <p className="text-lg">Selected image:</p>
+          <img
+            src={imageSrc}
+            alt="Selected"
+            className="mt-2 max-w-full h-auto"
+          />
         </div>
-      </div>
+      )}
+    </div>
+  );
+} */
 
-      {/* Change Password Section */}
-      <div className="bg-white shadow-md rounded-lg p-6">
-        <h2 className="text-2xl font-semibold mb-4">Change password</h2>
-        <form>
-          <div className="mb-4">
-            <label className="block text-sm font-medium text-gray-700">
-              Current Password
-            </label>
-            <input
-              type="password"
-              className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
-              placeholder="Password"
-            />
-          </div>
+import React from "react";
+import DraggableList from "./test components/test";
 
-          <div className="mb-4">
-            <label className="block text-sm font-medium text-gray-700">
-              New Password
-            </label>
-            <input
-              type="password"
-              className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
-              placeholder="Password"
-            />
-          </div>
-
-          <div className="mb-4">
-            <label className="block text-sm font-medium text-gray-700">
-              Confirm Password
-            </label>
-            <input
-              type="password"
-              className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
-              placeholder="Confirm new password"
-            />
-          </div>
-
-          <button
-            type="submit"
-            className="bg-orange-500 text-white px-4 py-2 rounded-md hover:bg-orange-600">
-            Change Password
-          </button>
-        </form>
-      </div>
+export default function page() {
+  return (
+    <div className="flex items-center justify-center ">
+      <AddCourseForm />
     </div>
   );
 }

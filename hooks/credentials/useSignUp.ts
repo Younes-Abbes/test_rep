@@ -1,4 +1,4 @@
-import { handleSignUp } from "@/lib/actions/credentials/signup";
+import { handleSignUp } from "@/api/User/signup";
 import { useMutation } from "@tanstack/react-query";
 import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
 import { toast } from "react-toastify";
